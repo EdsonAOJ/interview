@@ -16,7 +16,7 @@ server
         let monthly = 0
         let porcent
 
-        if (value < 5000 || value) {
+        if (value < 5000) {
             isAproved = false
             return res.status(400).json({ error: "O valor mínimo para emprestimo é de R$: 5.000,00 " });
         }
