@@ -10,7 +10,7 @@
 
 # O segundo End-point é o (post - "/contract"), onde o usuário deve passar o "name" e "email" para realizar a contratação do emprestimo, e o usuário deve ter sido aprovado no simulador para poder criar o cadastro. 
 
-# O Terceiro End-point é (get - "/clients"), onde será listado todos os usuários aprovados pelo sistema
+# O Terceiro End-point é (get - "/clients"), onde será listado todos os usuários criados 
 
 # O Ultimo End-point é (get - "/clients/by/:email"), onde será listado o  usuário a partir do email que foi enviado pelo parametro 
 
