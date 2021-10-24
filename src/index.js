@@ -16,7 +16,7 @@ server
         let monthly = 0
         let porcent
 
-        if (value < 5000) {
+        if (value < 5000 || value) {
             isAproved = false
             return res.status(400).json({ error: "O valor mínimo para emprestimo é de R$: 5.000,00 " });
         }
@@ -42,7 +42,7 @@ server
 
         var formatedFinalValue = finalValue.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
-        return res.status(200).json({ "Prazo": deadline, "Valor da parcela": monthly.toFixed(2), "Valor concedido com 1% de juros ao mês": formatedFinalValue })
+        return res.status(200).json({ "Prazo": `${deadline} Meses`, "Valor da parcela": monthly.toFixed(2), "Valor concedido com 1% de juros ao mês": formatedFinalValue })
     })
 
 
@@ -73,6 +73,11 @@ server
         const { email } = req.params
 
         const clientByEmail = await clients.find(client => client.email === email)
+
+        if (!clientByEmail) {
+            return res.status(404).json({ error: "Cliente não encontrado" });
+        }
+
 
         return res.status(200).json(clientByEmail)
     })
